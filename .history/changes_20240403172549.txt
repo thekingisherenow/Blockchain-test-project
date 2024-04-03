@@ -1,0 +1,19 @@
+function calculateHash(transaction, nonce) {
+  if (
+    !transaction ||
+    transaction.sender === undefined ||
+    transaction.receiver === undefined ||
+    nonce === undefined
+  ) {
+    return false;
+  }
+  return (
+    generateHashFromString(transaction.sender) +
+    "-" +
+    generateHashFromString(transaction.receiver) +
+    "-" +
+    nonce.toString(16) // Use the nonce value for the timestamp component
+  );
+}
+
+nonce can be used to generate new hashcodes.

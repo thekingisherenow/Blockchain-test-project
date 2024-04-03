@@ -22,7 +22,6 @@ var ChainUtilities = function ChainUtilities() {
           isValid = false;
           break;
         }
-        console.log("First test passed !");
 
         //checks the proof of every block
         if (
@@ -32,19 +31,11 @@ var ChainUtilities = function ChainUtilities() {
           isValid = false;
           break;
         }
-        console.log("Second test passed !!");
-        /*
-        //to check whether the hash of the previous block is stored correctly or not.
-        
-        calculateHash When the hash of a block includes dynamic or variable data such as timestamps, it introduces inconsistency because the hash will change whenever the variable data changes. This inconsistency makes it challenging to validate the blockchain, as you cannot rely on the hash of a block to remain constant over time.
+
+        /*calculateHash When the hash of a block includes dynamic or variable data such as timestamps, it introduces inconsistency because the hash will change whenever the variable data changes. This inconsistency makes it challenging to validate the blockchain, as you cannot rely on the hash of a block to remain constant over time.
 
         */
-
-        var lastBlockHash = validatorUtilities.calculateHash(
-          previousBlock.transaction[0]
-        );
-        console.log("lastBlockHash", lastBlockHash);
-        console.log("chain[i - 1].previousHash", chain[i].previousHash);
+        var lastBlockHash = validatorUtilities.calculateHash(previousBlock);
         if (lastBlockHash !== chain[i].previousHash) {
           isValid = false;
           break;

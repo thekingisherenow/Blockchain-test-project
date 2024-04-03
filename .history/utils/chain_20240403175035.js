@@ -45,7 +45,7 @@ var ChainUtilities = function ChainUtilities() {
         );
         console.log("lastBlockHash", lastBlockHash);
         console.log("chain[i - 1].previousHash", chain[i].previousHash);
-        if (lastBlockHash !== chain[i].previousHash) {
+        if (lastBlockHash !== chain[i - 1].previousHash) {
           isValid = false;
           break;
         }

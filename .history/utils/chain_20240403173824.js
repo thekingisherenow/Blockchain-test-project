@@ -40,12 +40,10 @@ var ChainUtilities = function ChainUtilities() {
 
         */
 
-        var lastBlockHash = validatorUtilities.calculateHash(
-          previousBlock.transaction[0]
-        );
+        var lastBlockHash = validatorUtilities.calculateHash(previousBlock);
         console.log("lastBlockHash", lastBlockHash);
-        console.log("chain[i - 1].previousHash", chain[i].previousHash);
-        if (lastBlockHash !== chain[i].previousHash) {
+        console.log("chain[i - 1].previousHash", chain[i - 1].previousHash);
+        if (lastBlockHash !== chain[i - 1].previousHash) {
           isValid = false;
           break;
         }
